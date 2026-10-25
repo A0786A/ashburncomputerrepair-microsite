@@ -69,6 +69,11 @@ const jsonLdList = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
           serving {business.city} and nearby towns.
         </p>
         <p>
+          {business.fullAddress} ·{" "}
+          <a href={`tel:${business.phone}`}>{business.phoneDisplay}</a> ·{" "}
+          {business.hoursDisplay}
+        </p>
+        <p>
           <a href="/">Home</a> · <a href="/faq">FAQ</a> ·{" "}
           <a href="/contact">Contact</a>
         </p>

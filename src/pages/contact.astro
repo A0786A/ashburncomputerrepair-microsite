@@ -17,16 +17,21 @@ import { business, serviceAreaText } from "../config.ts";
   <h2>Service area</h2>
   <p>{serviceAreaText}.</p>
 
+  <h2>Visit the shop</h2>
+  <p>{business.fullAddress}</p>
+
+  <h2>Call us</h2>
+  <p>
+    <a href={`tel:${business.phone}`}>{business.phoneDisplay}</a>
+  </p>
+
+  <h2>Hours</h2>
+  <p>{business.hoursDisplay}</p>
+
   <div class="callout">
     <p>
-      <strong>Coming before launch:</strong> our shop address, phone number,
-      and opening hours will be listed here. They are deliberately left off
-      this page until the real details are confirmed — no placeholder contact
-      information is published.
-    </p>
-    <p>
-      In the meantime, walk-ins are welcome, and every diagnosis and quote is
-      free.
+      Walk-ins are welcome during walk-in hours, and every diagnosis and
+      quote is free.
     </p>
   </div>
 

@@ -29,9 +29,10 @@ only until deployment is set up.
 
 ## TODO before launch
 
-1. **NAP details** — fill in the real street address, phone number, hours,
-   and email in `src/config.ts`. Until then, pages and JSON-LD deliberately
-   omit streetAddress and telephone. Never publish placeholder NAP data.
+1. **NAP details** — done: the real street address, phone number, and
+   hours are now in `src/config.ts` and appear on the site and in JSON-LD.
+   A contact email is still not listed — add one only if the shop wants it
+   published.
 2. **Review the copy** — service descriptions, turnaround wording, and
    warranty wording are written generically; confirm they match how the shop
    actually works before launch.

@@ -7,6 +7,16 @@ const localBusiness = {
   "@type": "LocalBusiness",
   name: business.name,
   url: business.siteUrl,
+  telephone: business.phone,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: business.streetAddress,
+    addressLocality: business.addressLocality,
+    addressRegion: business.addressRegion,
+    postalCode: business.postalCode,
+    addressCountry: "US",
+  },
+  openingHours: business.openingHours,
   areaServed: business.serviceArea.map((place) => ({
     "@type": "City",
     name: place,
@@ -108,8 +118,9 @@ const localBusiness = {
     </dd>
     <dt>Do I need an appointment?</dt>
     <dd>
-      No — walk-ins are welcome. See the <a href="/contact">contact page</a>{" "}
-      for current hours once they are listed.
+      No — walk-ins are welcome every day from 8:30 AM to 2:00 PM. After
+      hours, visits are by appointment. See the{" "}
+      <a href="/contact">contact page</a> for the address and phone number.
     </dd>
   </dl>
   <p>

@@ -16,13 +16,17 @@ export const business = {
     "Reston",
     "Loudoun County",
   ],
-  // TODO: real street address (e.g. "123 Example Rd, Ashburn, VA 20147")
-  streetAddress: null as string | null,
-  // TODO: real phone number
-  phone: null as string | null,
-  // TODO: real opening hours
-  hours: null as string | null,
-  // TODO: real contact email
+  streetAddress: "44075 Pipeline Plaza Ste. 215",
+  addressLocality: "Ashburn",
+  addressRegion: "VA",
+  postalCode: "20147",
+  fullAddress: "44075 Pipeline Plaza Ste. 215, Ashburn, VA 20147",
+  phoneDisplay: "(866) 991-6727",
+  phone: "+1-866-991-6727",
+  hoursDisplay:
+    "Open every day — walk-ins 8:30 AM–2:00 PM; after-hours by appointment",
+  openingHours: "Mo-Su 08:30-14:00",
+  // TODO: real contact email, if one should be listed
   email: null as string | null,
 };
 
