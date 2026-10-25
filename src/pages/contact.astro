@@ -1,0 +1,40 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { business, serviceAreaText } from "../config.ts";
+---
+
+<BaseLayout
+  title="Contact"
+  description="Contact AZ Tech IT Repair — computer, laptop, phone, and gaming console repair serving Ashburn, VA and nearby towns."
+  path="/contact"
+>
+  <h1>Contact {business.name}</h1>
+  <p class="lede">
+    We repair computers, laptops, phones, and gaming consoles for customers in{" "}
+    {business.city} and nearby towns.
+  </p>
+
+  <h2>Service area</h2>
+  <p>{serviceAreaText}.</p>
+
+  <div class="callout">
+    <p>
+      <strong>Coming before launch:</strong> our shop address, phone number,
+      and opening hours will be listed here. They are deliberately left off
+      this page until the real details are confirmed — no placeholder contact
+      information is published.
+    </p>
+    <p>
+      In the meantime, walk-ins are welcome, and every diagnosis and quote is
+      free.
+    </p>
+  </div>
+
+  <h2>What to bring</h2>
+  <ul class="fixes">
+    <li>The device itself, plus its charger or power cable if you have it</li>
+    <li>For disc problems, a disc that fails to read</li>
+    <li>Your device password or PIN, if the repair needs it (you can also set
+      a temporary one)</li>
+  </ul>
+</BaseLayout>

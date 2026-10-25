@@ -1,0 +1,78 @@
+---
+import { business } from "../config.ts";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+  // Path relative to the site root, e.g. "/laptop-repair"
+  path?: string;
+  // One JSON-LD object (or array of them) rendered as application/ld+json
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const { title, description, path = "/", jsonLd } = Astro.props;
+const canonical = new URL(path, business.siteUrl).toString();
+const fullTitle = `${title} | ${business.name} — ${business.city}`;
+const jsonLdList = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={business.name} />
+    {
+      jsonLdList.map((item) => (
+        <script
+          type="application/ld+json"
+          set:html={JSON.stringify(item)}
+        />
+      ))
+    }
+  </head>
+  <body>
+    <header class="site">
+      <div class="wrap">
+        <a class="brand" href="/">
+          AZ Tech <span>IT Repair</span>
+        </a>
+        <nav class="main" aria-label="Main">
+          <a href="/computer-repair">Computer Repair</a>
+          <a href="/laptop-repair">Laptop Repair</a>
+          <a href="/virus-removal">Virus Removal</a>
+          <a href="/data-recovery">Data Recovery</a>
+          <a href="/phone-repair">Phone Repair</a>
+          <a href="/gaming-console-repair">Console Repair</a>
+          <a href="/faq">FAQ</a>
+          <a href="/contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="wrap">
+        <slot />
+      </div>
+    </main>
+    <footer class="site">
+      <div class="wrap">
+        <p>
+          {business.name} — computer, laptop, phone, and gaming console repair
+          serving {business.city} and nearby towns.
+        </p>
+        <p>
+          <a href="/">Home</a> · <a href="/faq">FAQ</a> ·{" "}
+          <a href="/contact">Contact</a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

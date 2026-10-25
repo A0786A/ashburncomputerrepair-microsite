@@ -1,0 +1,76 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { business } from "../config.ts";
+
+const faqs = [
+  {
+    q: "Do I need an appointment to bring in a device?",
+    a: "No — walk-ins are welcome. If you want to be sure about timing, check the contact page for current hours once they are listed.",
+  },
+  {
+    q: "How much will my repair cost?",
+    a: "Diagnosis and quotes are free. The exact price depends on the fault and any parts needed, and you approve it before any work starts — no surprise charges.",
+  },
+  {
+    q: "How long does a typical repair take?",
+    a: "Many common repairs are completed the same day or the next business day. Jobs that need ordered parts take longer, and you will get a time estimate with your quote.",
+  },
+  {
+    q: "Is there a warranty on repairs?",
+    a: "Warranty details are provided with your quote and depend on the repair and the parts used. Ask at drop-off and we will confirm what is covered before work begins.",
+  },
+  {
+    q: "Will my files and photos be safe?",
+    a: "Yes. Repairs do not touch your data unless the drive itself is the problem, in which case we discuss options with you first. If you are worried, back up before you come in — or ask us about it at drop-off.",
+  },
+  {
+    q: "What if my device is not worth fixing?",
+    a: "We will tell you honestly. The diagnosis is free, so if a repair costs more than the device is worth, you can walk away without paying anything.",
+  },
+  {
+    q: "Do you fix devices for businesses as well as home users?",
+    a: "Yes. We serve both home users and small businesses in Ashburn and nearby towns.",
+  },
+  {
+    q: "Where are you located?",
+    a: "We serve Ashburn, VA and nearby towns including Sterling, Leesburg, Herndon, and Reston. Full address, phone, and hours will be listed on the contact page before launch.",
+  },
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+---
+
+<BaseLayout
+  title="Frequently Asked Questions"
+  description="Computer repair FAQ for Ashburn, VA — cost, turnaround, warranty, data safety, walk-ins, and what happens if a device isn't worth fixing."
+  path="/faq"
+  jsonLd={jsonLd}
+>
+  <h1>Frequently Asked Questions</h1>
+  <p class="lede">
+    Straight answers about cost, turnaround, warranty, and data safety — no
+    fine print.
+  </p>
+  <dl class="faq">
+    {
+      faqs.map((f) => (
+        <>
+          <dt>{f.q}</dt>
+          <dd>{f.a}</dd>
+        </>
+      ))
+    }
+  </dl>
+  <p>
+    Still unsure? <a href="/contact">Contact us</a> and describe the problem
+    — we will tell you whether it is worth bringing in.
+  </p>
+</BaseLayout>

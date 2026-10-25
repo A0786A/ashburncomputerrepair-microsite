@@ -1,0 +1,108 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { business } from "../config.ts";
+
+const faqs = [
+  {
+    q: "Can you recover files from a dead hard drive?",
+    a: "Sometimes. If the drive still spins up or is readable, recovery is often straightforward. If it has a mechanical failure, options are more limited and we will explain them honestly before you spend anything.",
+  },
+  {
+    q: "My computer says the drive is not accessible. Are my files gone?",
+    a: "Not necessarily. That message often means a file-system or partition problem, not lost data. Stop using the drive and bring it in — continued use can overwrite recoverable files.",
+  },
+  {
+    q: "How much does data recovery cost?",
+    a: "It depends on the drive's condition and how much data is involved. Diagnosis and quotes are free — you get an exact price before any recovery work starts.",
+  },
+  {
+    q: "I accidentally deleted important files. Can they be recovered?",
+    a: "Often, yes, if the drive has not been heavily used since. Stop saving anything new to that drive and bring it in as soon as possible.",
+  },
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Data Recovery",
+    provider: { "@type": "LocalBusiness", name: business.name, url: business.siteUrl },
+    areaServed: business.serviceArea,
+    description:
+      "Data recovery in Ashburn, VA: photos, documents, and work files recovered from failing drives, dead devices, and accidental deletion.",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  },
+];
+---
+
+<BaseLayout
+  title="Data Recovery in Ashburn, VA"
+  description="Data recovery in Ashburn, VA — photos, documents, and work files recovered from failing drives, dead devices, and accidental deletion. Free diagnosis and quote."
+  path="/data-recovery"
+  jsonLd={jsonLd}
+>
+  <h1>Data Recovery in Ashburn, VA</h1>
+  <p class="lede">
+    Deleted files, a dead laptop, or a drive that suddenly stopped working?
+    Your data is often still recoverable — but the first rule is to stop using
+    the drive, because every new write can overwrite what is left.
+  </p>
+  <p>
+    {business.name} in Ashburn assesses the drive first and tells you honestly
+    what is recoverable and what it costs, before any recovery work begins.
+  </p>
+
+  <h2>What we recover from</h2>
+  <ul class="fixes">
+    <li>Accidentally deleted files and emptied recycle bins</li>
+    <li>Hard drives that click, fail to boot, or are not detected</li>
+    <li>Laptops and PCs that will not turn on</li>
+    <li>Formatted drives and corrupted partitions</li>
+    <li>USB flash drives and memory cards</li>
+    <li>Photos, documents, email, and business files</li>
+  </ul>
+
+  <h2>How recovery works</h2>
+  <ol class="steps">
+    <li>Bring in the drive or the whole device — walk-ins welcome.</li>
+    <li>We assess the drive and tell you what looks recoverable.</li>
+    <li>You get an exact quote. Nothing starts until you approve it.</li>
+    <li>Recovered files are copied to a drive you provide or a new one.</li>
+  </ol>
+
+  <div class="callout">
+    <p>
+      <strong>Important:</strong> if you suspect data loss, stop using the
+      drive immediately. Installing recovery software on the same drive can
+      destroy the files you are trying to save.
+    </p>
+    <p>
+      <strong>Pricing:</strong> quotes are free and the exact price depends on
+      the drive's condition and the amount of data. You approve the price
+      before work begins.
+    </p>
+  </div>
+
+  <h2>Frequently asked questions</h2>
+  <dl class="faq">
+    {
+      faqs.map((f) => (
+        <>
+          <dt>{f.q}</dt>
+          <dd>{f.a}</dd>
+        </>
+      ))
+    }
+  </dl>
+  <p>
+    <a href="/contact">Contact us</a> or see our <a href="/faq">general FAQ</a>.
+  </p>
+</BaseLayout>

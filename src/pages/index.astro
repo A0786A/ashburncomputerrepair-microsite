@@ -1,0 +1,118 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { business, serviceAreaText } from "../config.ts";
+
+const localBusiness = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: business.name,
+  url: business.siteUrl,
+  areaServed: business.serviceArea.map((place) => ({
+    "@type": "City",
+    name: place,
+  })),
+};
+---
+
+<BaseLayout
+  title="Computer Repair in Ashburn, VA"
+  description="Fast, local computer repair in Ashburn, VA — desktops, laptops, virus removal, data recovery, phones, and gaming consoles. Free quotes and walk-ins welcome."
+  path="/"
+  jsonLd={localBusiness}
+>
+  <section class="hero">
+    <h1>Computer Repair in Ashburn, VA</h1>
+    <p class="lede">
+      Broken laptop, slow PC, virus, or lost files? {business.name} fixes
+      computers for people and businesses in Ashburn — with free quotes, clear
+      pricing before any work starts, and no fix, no fuss.
+    </p>
+    <p>
+      Walk in with your device or <a href="/contact">get in touch</a> and we
+      will tell you what is wrong, what it costs, and how long it takes —
+      before you commit to anything.
+    </p>
+  </section>
+
+  <h2>What we fix</h2>
+  <div class="cards">
+    <div class="card">
+      <h3><a href="/computer-repair">Computer Repair</a></h3>
+      <p>
+        Desktop PCs that will not boot, crash, overheat, or have stopped
+        keeping up.
+      </p>
+    </div>
+    <div class="card">
+      <h3><a href="/laptop-repair">Laptop Repair</a></h3>
+      <p>
+        Cracked screens, dead batteries, broken keyboards, charging ports, and
+        hinge damage.
+      </p>
+    </div>
+    <div class="card">
+      <h3><a href="/virus-removal">Virus Removal</a></h3>
+      <p>
+        Pop-ups, ransomware scares, browser hijacks, and malware cleaned out
+        properly.
+      </p>
+    </div>
+    <div class="card">
+      <h3><a href="/data-recovery">Data Recovery</a></h3>
+      <p>
+        Photos, documents, and work files recovered from failing drives and
+        dead devices.
+      </p>
+    </div>
+    <div class="card">
+      <h3><a href="/phone-repair">Phone Repair</a></h3>
+      <p>Screen, battery, and charging repairs for popular phones.</p>
+    </div>
+    <div class="card">
+      <h3><a href="/gaming-console-repair">Console Repair</a></h3>
+      <p>
+        PlayStation, Xbox, and Nintendo consoles — HDMI, disc drive, and
+        overheating problems.
+      </p>
+    </div>
+  </div>
+
+  <h2>Why choose a local Ashburn repair shop?</h2>
+  <p>
+    You talk to the person actually fixing your device, not a shipping label.
+    Diagnosis is explained in plain language, quotes are free, and you approve
+    the price before any repair begins. Most common repairs are turned around
+    quickly, and if a part has to be ordered, you will know the wait up front.
+  </p>
+
+  <h2>Serving Ashburn and nearby towns</h2>
+  <p>
+    We serve customers across {serviceAreaText}. If you are nearby and unsure
+    whether your device is worth fixing, bring it in — the diagnosis and quote
+    cost nothing.
+  </p>
+
+  <h2>Common questions</h2>
+  <dl class="faq">
+    <dt>How much does computer repair cost in Ashburn?</dt>
+    <dd>
+      It depends on the fault and the part needed. Quotes are free: we diagnose
+      the device first and give you an exact price before any work starts, so
+      there are no surprise charges.
+    </dd>
+    <dt>How long does a repair take?</dt>
+    <dd>
+      Many common repairs are completed the same day or the next business day.
+      Jobs that need ordered parts take longer, and you will get a time
+      estimate with your quote.
+    </dd>
+    <dt>Do I need an appointment?</dt>
+    <dd>
+      No — walk-ins are welcome. See the <a href="/contact">contact page</a>{" "}
+      for current hours once they are listed.
+    </dd>
+  </dl>
+  <p>
+    <a href="/faq">See all frequently asked questions →</a>
+  </p>
+</BaseLayout>

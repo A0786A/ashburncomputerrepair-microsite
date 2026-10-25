@@ -1,0 +1,105 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { business } from "../config.ts";
+
+const faqs = [
+  {
+    q: "How much does a laptop screen replacement cost in Ashburn?",
+    a: "It depends on the laptop model and the screen type. Diagnosis and quotes are free — you get an exact price before any work starts.",
+  },
+  {
+    q: "My laptop battery barely lasts an hour. Can it be replaced?",
+    a: "Yes, in most cases. A new battery usually restores normal battery life, and replacement is a common same-day or next-day job.",
+  },
+  {
+    q: "My laptop will not charge. Is it the charger or the laptop?",
+    a: "Either is possible — a worn charger, a damaged charging port, or a battery fault. We test each one during the free diagnosis so you only pay for the real fix.",
+  },
+  {
+    q: "Can you save my files if my laptop will not turn on?",
+    a: "Very often, yes. If the drive is readable, your files can usually be copied to a new drive or an external drive. See our data recovery page for details.",
+  },
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Laptop Repair",
+    provider: { "@type": "LocalBusiness", name: business.name, url: business.siteUrl },
+    areaServed: business.serviceArea,
+    description:
+      "Laptop repair in Ashburn, VA: cracked screens, battery and keyboard replacement, charging port repair, and laptops that will not turn on.",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  },
+];
+---
+
+<BaseLayout
+  title="Laptop Repair in Ashburn, VA"
+  description="Laptop repair in Ashburn, VA — cracked screens, battery and keyboard replacement, charging port repair, and laptops that won't turn on. Free diagnosis and quote."
+  path="/laptop-repair"
+  jsonLd={jsonLd}
+>
+  <h1>Laptop Repair in Ashburn, VA</h1>
+  <p class="lede">
+    Cracked screen, dead battery, or a laptop that will not charge? Most
+    laptop repairs are straightforward — and a free diagnosis tells you the
+    exact cost before you commit.
+  </p>
+  <p>
+    Laptops fail in predictable ways, and {business.name} in Ashburn fixes
+    them every day. Bring the laptop and its charger if you have it; we test
+    the real fault instead of replacing parts by guesswork.
+  </p>
+
+  <h2>What we fix</h2>
+  <ul class="fixes">
+    <li>Cracked, flickering, or blank laptop screens</li>
+    <li>Batteries that drain fast, swell, or will not hold a charge</li>
+    <li>Broken keyboards, trackpads, and hinges</li>
+    <li>Charging ports and laptops that will not charge</li>
+    <li>Laptops that will not turn on or keep shutting down</li>
+    <li>Overheating, loud fans, and slow performance</li>
+    <li>SSD and RAM upgrades to make an old laptop fast again</li>
+  </ul>
+
+  <h2>How a repair works</h2>
+  <ol class="steps">
+    <li>Bring in your laptop and charger — walk-ins welcome.</li>
+    <li>We diagnose the fault and explain what is wrong.</li>
+    <li>You get an exact quote. Nothing starts until you approve it.</li>
+    <li>We repair, test, and let you know when it is ready to collect.</li>
+  </ol>
+
+  <div class="callout">
+    <p>
+      <strong>Pricing:</strong> quotes are free and the exact price depends on
+      the diagnosis and any parts needed — screen and battery prices vary by
+      model. You approve the price before work begins.
+    </p>
+  </div>
+
+  <h2>Frequently asked questions</h2>
+  <dl class="faq">
+    {
+      faqs.map((f) => (
+        <>
+          <dt>{f.q}</dt>
+          <dd>{f.a}</dd>
+        </>
+      ))
+    }
+  </dl>
+  <p>
+    <a href="/contact">Contact us</a> or see our <a href="/faq">general FAQ</a>.
+  </p>
+</BaseLayout>

@@ -1,0 +1,102 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import { business } from "../config.ts";
+
+const faqs = [
+  {
+    q: "How do I know if my computer has a virus?",
+    a: "Common signs are constant pop-ups, a browser homepage you did not set, new toolbars, very slow performance, and warnings demanding payment. If in doubt, stop entering passwords and bring the device in.",
+  },
+  {
+    q: "Will virus removal delete my files?",
+    a: "No. Cleaning targets the infection, not your documents and photos. If malware has damaged files, we tell you before doing anything that affects them.",
+  },
+  {
+    q: "I clicked a scam link and entered my password. What should I do?",
+    a: "Change that password from a clean device, turn on two-factor authentication where available, and have the affected device cleaned. The sooner, the better.",
+  },
+  {
+    q: "Does virus removal include protection afterwards?",
+    a: "Yes — after cleaning, we make sure sensible protection is in place and show you the settings that keep the device safer going forward.",
+  },
+];
+
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name: "Virus and Malware Removal",
+    provider: { "@type": "LocalBusiness", name: business.name, url: business.siteUrl },
+    areaServed: business.serviceArea,
+    description:
+      "Virus and malware removal in Ashburn, VA: pop-ups, browser hijacks, ransomware scares, and spyware cleaned out properly.",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  },
+];
+---
+
+<BaseLayout
+  title="Virus & Malware Removal in Ashburn, VA"
+  description="Virus and malware removal in Ashburn, VA — pop-ups, browser hijacks, ransomware scares, and spyware cleaned out properly. Free diagnosis and quote."
+  path="/virus-removal"
+  jsonLd={jsonLd}
+>
+  <h1>Virus &amp; Malware Removal in Ashburn, VA</h1>
+  <p class="lede">
+    If your computer is suddenly full of pop-ups, your browser is hijacked, or
+    a scary warning is demanding payment — stop clicking, and bring it in.
+    Most infections are fully removable, and your files usually survive intact.
+  </p>
+  <p>
+    {business.name} in Ashburn cleans infections properly: not just the
+    pop-up, but the program behind it, so it does not come straight back.
+  </p>
+
+  <h2>What we clean up</h2>
+  <ul class="fixes">
+    <li>Pop-ups, fake virus warnings, and tech-support scams</li>
+    <li>Browser hijacks, unwanted toolbars, and changed homepages</li>
+    <li>Adware, spyware, and trojans</li>
+    <li>Ransomware scares and locked screens</li>
+    <li>Programs you did not install and cannot remove</li>
+    <li>Slow, strange behavior after clicking a bad link or attachment</li>
+  </ul>
+
+  <h2>How a cleanup works</h2>
+  <ol class="steps">
+    <li>Bring in the affected device — walk-ins welcome.</li>
+    <li>We identify the infection and check whether any files are affected.</li>
+    <li>You get an exact quote. Nothing starts until you approve it.</li>
+    <li>We remove the infection, verify it is gone, and set up protection.</li>
+  </ol>
+
+  <div class="callout">
+    <p>
+      <strong>Pricing:</strong> quotes are free and the exact price depends on
+      the diagnosis. You approve the price before work begins.
+    </p>
+  </div>
+
+  <h2>Frequently asked questions</h2>
+  <dl class="faq">
+    {
+      faqs.map((f) => (
+        <>
+          <dt>{f.q}</dt>
+          <dd>{f.a}</dd>
+        </>
+      ))
+    }
+  </dl>
+  <p>
+    <a href="/contact">Contact us</a> or see our <a href="/faq">general FAQ</a>.
+  </p>
+</BaseLayout>
