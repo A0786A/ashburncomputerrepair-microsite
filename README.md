@@ -1,6 +1,6 @@
 # Ashburn Computer Repair — SEO Microsite
 
-A fast, static microsite for **AZ Tech IT Repair** in Ashburn, VA, built with
+A fast, static microsite for **AZ Tech Services** in Ashburn, VA, built with
 [Astro](https://astro.build) for local SEO and AI answer engines (AEO):
 plain static HTML, per-page meta and canonical URLs, JSON-LD schema
 (LocalBusiness, Service, FAQPage), a sitemap, and an `llms.txt` file.

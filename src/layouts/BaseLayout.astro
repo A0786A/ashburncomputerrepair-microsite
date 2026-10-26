@@ -15,6 +15,10 @@ const { title, description, path = "/", jsonLd } = Astro.props;
 const canonical = new URL(path, business.siteUrl).toString();
 const fullTitle = `${title} | ${business.name} — ${business.city}`;
 const jsonLdList = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
+const nameParts = business.name.split(" ");
+const brandMain = nameParts.slice(0, 2).join(" ");
+const brandRest = nameParts.slice(2).join(" ");
+const ogImage = `${business.siteUrl}/images/team-front-desk.jpg`;
 ---
 
 <!doctype html>
@@ -25,11 +29,17 @@ const jsonLdList = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
     <meta property="og:site_name" content={business.name} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
     {
       jsonLdList.map((item) => (
         <script
@@ -43,7 +53,7 @@ const jsonLdList = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
     <header class="site">
       <div class="wrap">
         <a class="brand" href="/">
-          AZ Tech <span>IT Repair</span>
+          {brandMain} <span>{brandRest}</span>
         </a>
         <nav class="main" aria-label="Main">
           <a href="/computer-repair">Computer Repair</a>
@@ -54,6 +64,9 @@ const jsonLdList = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
           <a href="/gaming-console-repair">Console Repair</a>
           <a href="/faq">FAQ</a>
           <a href="/contact">Contact</a>
+          <a class="call" href={`tel:${business.phone}`}>
+            Call {business.phoneDisplay}
+          </a>
         </nav>
       </div>
     </header>

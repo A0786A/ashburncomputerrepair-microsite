@@ -1,11 +1,9 @@
 // Central business config for the Ashburn microsite.
-//
-// TODO BEFORE LAUNCH: fill in the real street address, phone number,
-// hours, and email. Pages and JSON-LD deliberately OMIT any field that
-// is still a placeholder — never publish placeholder NAP data.
+// The business name, address, phone, and hours below match the shop's
+// Google Business Profile exactly — keep them in sync.
 
 export const business = {
-  name: "AZ Tech IT Repair",
+  name: "AZ Tech Services",
   city: "Ashburn, VA",
   siteUrl: "https://ashburncomputerrepair.com",
   serviceArea: [
