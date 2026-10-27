@@ -56,7 +56,7 @@ import { business, serviceAreaText } from "../config.ts";
     Describe your device problem and we will get back to you with an estimated
     timeline and next steps.
   </p>
-  <form class="contact-form" method="POST" action="#">
+  <form class="contact-form" id="quote-form" method="POST" action="#">
     <div class="form-group">
       <label for="name">Name <span class="required">*</span></label>
       <input type="text" id="name" name="name" required />
@@ -88,7 +88,8 @@ import { business, serviceAreaText } from "../config.ts";
         placeholder="Tell us more about the problem..."
         required></textarea>
     </div>
-    <button type="submit" class="btn btn-primary">Send Message</button>
+    <button type="submit" class="btn btn-primary" id="quote-submit">Send Message</button>
+    <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
   </form>
   <p class="form-note">
     <small
@@ -97,4 +98,75 @@ import { business, serviceAreaText } from "../config.ts";
       > — walk-ins welcome during walk-in hours.</small
     >
   </p>
+  <script is:inline>
+    (function () {
+      var form = document.getElementById("quote-form");
+      if (!form) return;
+      var status = document.getElementById("form-status");
+      var button = document.getElementById("quote-submit");
+      var ENDPOINT =
+        "https://ccfbanwzjigmwucdmbbj.supabase.co/functions/v1/send-contact-email";
+      var ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNjZmJhbnd6amlnbXd1Y2RtYmJqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU2MDgwNTYsImV4cCI6MjA4MTE4NDA1Nn0.JHjx3qcvWEOCp3wVbZEYWMIM7ktxkZCPGQB6IE32xpY";
+      var SOURCE =
+        "AZ Tech Services Website - Microsite Contact Form (ashburncomputerrepair.com)";
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        var data = new FormData(form);
+        var name = (data.get("name") || "").toString().trim();
+        var email = (data.get("email") || "").toString().trim();
+        var phone = (data.get("phone") || "").toString().trim();
+        var device = (data.get("device") || "").toString().trim();
+        var message = (data.get("message") || "").toString().trim();
+        if (!name || !email || !device || !message) {
+          status.textContent =
+            "Please fill in your name, email, device/issue, and a message.";
+          status.className = "form-status error";
+          return;
+        }
+        button.disabled = true;
+        status.textContent = "Sending…";
+        status.className = "form-status";
+        fetch(ENDPOINT, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            apikey: ANON_KEY,
+            Authorization: "Bearer " + ANON_KEY,
+          },
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            phone: phone,
+            message: "Device / Issue: " + device + "\n\n" + message,
+            source: SOURCE,
+          }),
+        })
+          .then(function (res) {
+            return res.json().then(function (json) {
+              return { ok: res.ok, json: json };
+            });
+          })
+          .then(function (result) {
+            if (result.ok && result.json && result.json.success) {
+              form.reset();
+              status.textContent =
+                "Thank you — your message has been sent. We will get back to you shortly. For anything urgent, call (866) 991-6727.";
+              status.className = "form-status success";
+            } else {
+              status.textContent =
+                "Sorry, sending failed. Please call us at (866) 991-6727 and we will help right away.";
+              status.className = "form-status error";
+            }
+          })
+          .catch(function () {
+            status.textContent =
+              "Sorry, sending failed. Please call us at (866) 991-6727 and we will help right away.";
+            status.className = "form-status error";
+          })
+          .finally(function () {
+            button.disabled = false;
+          });
+      });
+    })();
+  </script>
 </BaseLayout>
