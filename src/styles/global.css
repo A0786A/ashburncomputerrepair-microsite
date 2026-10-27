@@ -328,3 +328,64 @@ footer.site a {
     padding: 1.25rem;
   }
 }
+
+.contact-form {
+  max-width: 600px;
+  margin: 1.5rem 0;
+}
+
+.form-group {
+  margin-bottom: 1.25rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: var(--ink);
+}
+
+.form-group .required {
+  color: var(--accent);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--ink);
+  background: var(--bg);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(11, 111, 164, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.form-note {
+  color: var(--muted);
+  margin-top: 1rem;
+}
+
+.cta-mid {
+  margin: 1.75rem 0;
+  text-align: center;
+}
+
+.cta-mid .cta-row {
+  justify-content: center;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
