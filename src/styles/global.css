@@ -54,6 +54,9 @@ header.site .wrap {
 }
 
 .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
   font-weight: 800;
   font-size: 1.25rem;
   color: var(--navy);
@@ -61,8 +64,21 @@ header.site .wrap {
   letter-spacing: -0.01em;
 }
 
-.brand span {
+.brand-logo {
+  width: 42px;
+  height: 42px;
+  display: block;
+}
+
+.brand .brand-name > span {
   color: var(--accent);
+}
+
+.footer-logo {
+  width: 56px;
+  height: 56px;
+  display: block;
+  margin-bottom: 0.75rem;
 }
 
 nav.main {
