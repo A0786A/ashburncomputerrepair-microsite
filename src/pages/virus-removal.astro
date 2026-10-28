@@ -40,6 +40,24 @@ const jsonLd = [
       acceptedAnswer: { "@type": "Answer", text: f.a },
     })),
   },
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    itemReviewed: {
+      "@type": "LocalBusiness",
+      name: business.name,
+    },
+    author: {
+      "@type": "Person",
+      name: "Robert Johnson",
+    },
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: "5",
+    },
+    reviewBody:
+      "The guys at AZ Tech were super friendly and completely competent. They quickly confirmed the problem with my laptop, and ordered the right part. When I dropped off the computer after the part arrived, they completed the repair almost faster than I could drive home. I am totally satisfied, and will use AZ Tech again!",
+  },
 ];
 ---
 
@@ -94,6 +112,18 @@ const jsonLd = [
       <strong>Pricing:</strong> quotes are free and the exact price depends on
       the diagnosis. You approve the price before work begins.
     </p>
+  </div>
+
+  <div class="testimonial-single">
+    <div class="stars">★★★★★</div>
+    <p class="quote">
+      "The guys at AZ Tech were super friendly and completely competent. They
+      quickly confirmed the problem with my laptop, and ordered the right part.
+      When I dropped off the computer after the part arrived, they completed the
+      repair almost faster than I could drive home. I am totally satisfied, and
+      will use AZ Tech again!"
+    </p>
+    <p class="author">— Robert Johnson</p>
   </div>
 
   <h2>Frequently asked questions</h2>

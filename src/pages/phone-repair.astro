@@ -40,6 +40,24 @@ const jsonLd = [
       acceptedAnswer: { "@type": "Answer", text: f.a },
     })),
   },
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    itemReviewed: {
+      "@type": "LocalBusiness",
+      name: business.name,
+    },
+    author: {
+      "@type": "Person",
+      name: "Ariel Wolfer",
+    },
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: "5",
+    },
+    reviewBody:
+      "Did a great job pinpointing the problem with my PC, and provided a detailed option to fix it, all at reasonable pricing. They earned my confidence in being good faith operators.",
+  },
 ];
 ---
 
@@ -95,6 +113,16 @@ const jsonLd = [
       the diagnosis and the part needed — screen and battery prices vary by
       model. You approve the price before work begins.
     </p>
+  </div>
+
+  <div class="testimonial-single">
+    <div class="stars">★★★★★</div>
+    <p class="quote">
+      "Did a great job pinpointing the problem with my PC, and provided a
+      detailed option to fix it, all at reasonable pricing. They earned my
+      confidence in being good faith operators."
+    </p>
+    <p class="author">— Ariel Wolfer</p>
   </div>
 
   <h2>Frequently asked questions</h2>

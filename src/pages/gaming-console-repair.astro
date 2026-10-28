@@ -40,6 +40,24 @@ const jsonLd = [
       acceptedAnswer: { "@type": "Answer", text: f.a },
     })),
   },
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    itemReviewed: {
+      "@type": "LocalBusiness",
+      name: business.name,
+    },
+    author: {
+      "@type": "Person",
+      name: "Firas Alcheikh Ali",
+    },
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: "5",
+    },
+    reviewBody:
+      "These guys are great, they are smart, bright and reasonably priced. We call them for any IT problems we face in our Oral Surgery practice and they go above and beyond to help us. Highly recommend!",
+  },
 ];
 ---
 
@@ -96,6 +114,16 @@ const jsonLd = [
       the diagnosis and any parts needed. You approve the price before work
       begins.
     </p>
+  </div>
+
+  <div class="testimonial-single">
+    <div class="stars">★★★★★</div>
+    <p class="quote">
+      "These guys are great, they are smart, bright and reasonably priced. We
+      call them for any IT problems we face in our Oral Surgery practice and
+      they go above and beyond to help us. Highly recommend!"
+    </p>
+    <p class="author">— Firas Alcheikh Ali</p>
   </div>
 
   <h2>Frequently asked questions</h2>

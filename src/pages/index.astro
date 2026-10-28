@@ -24,6 +24,47 @@ const localBusiness = {
     ratingValue: "4.9",
     reviewCount: "169",
   },
+  review: [
+    {
+      "@type": "Review",
+      author: {
+        "@type": "Person",
+        name: "Ariel Wolfer",
+      },
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: "5",
+      },
+      reviewBody:
+        "Did a great job pinpointing the problem with my PC, and provided a detailed option to fix it, all at reasonable pricing. They earned my confidence in being good faith operators.",
+    },
+    {
+      "@type": "Review",
+      author: {
+        "@type": "Person",
+        name: "Robert Johnson",
+      },
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: "5",
+      },
+      reviewBody:
+        "The guys at AZ Tech were super friendly and completely competent. They quickly confirmed the problem with my laptop, and ordered the right part. When I dropped off the computer after the part arrived, they completed the repair almost faster than I could drive home. I am totally satisfied, and will use AZ Tech again!",
+    },
+    {
+      "@type": "Review",
+      author: {
+        "@type": "Person",
+        name: "Gerald Fry",
+      },
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: "5",
+      },
+      reviewBody:
+        "AZ Tech Services is absolutely the best place to have your tech equipment serviced. I've been using them for 3 years on several very difficult projects and they have come through with great results. Computers iPads and other tech equipment go to AZ Tech Services. Also very reasonable prices for this excellent service. Nothing is too big or small for them to repair.",
+    },
+  ],
   sameAs: ["https://www.aztechservices.net"],
   areaServed: business.serviceArea.map((place) => ({
     "@type": "City",
@@ -256,6 +297,42 @@ const localBusiness = {
     the price before any repair begins. Most common repairs are turned around
     quickly, and if a part has to be ordered, you will know the wait up front.
   </p>
+
+  <h2>What customers say</h2>
+  <div class="testimonials">
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p class="quote">
+        "Did a great job pinpointing the problem with my PC, and provided a
+        detailed option to fix it, all at reasonable pricing. They earned my
+        confidence in being good faith operators."
+      </p>
+      <p class="author">— Ariel Wolfer</p>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p class="quote">
+        "The guys at AZ Tech were super friendly and completely competent. They
+        quickly confirmed the problem with my laptop, and ordered the right
+        part. When I dropped off the computer after the part arrived, they
+        completed the repair almost faster than I could drive home. I am totally
+        satisfied, and will use AZ Tech again!"
+      </p>
+      <p class="author">— Robert Johnson</p>
+    </div>
+    <div class="testimonial">
+      <div class="stars">★★★★★</div>
+      <p class="quote">
+        "AZ Tech Services is absolutely the best place to have your tech
+        equipment serviced. I've been using them for 3 years on several very
+        difficult projects and they have come through with great results.
+        Computers iPads and other tech equipment go to AZ Tech Services. Also
+        very reasonable prices for this excellent service. Nothing is too big or
+        small for them to repair."
+      </p>
+      <p class="author">— Gerald Fry</p>
+    </div>
+  </div>
 
   <h2>Serving Ashburn and nearby towns</h2>
   <p>

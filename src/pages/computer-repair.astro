@@ -40,6 +40,24 @@ const jsonLd = [
       acceptedAnswer: { "@type": "Answer", text: f.a },
     })),
   },
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    itemReviewed: {
+      "@type": "LocalBusiness",
+      name: business.name,
+    },
+    author: {
+      "@type": "Person",
+      name: "Victoria Cassano",
+    },
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: "5",
+    },
+    reviewBody:
+      "They were very competent, and diagnosed my problem quickly. They were able to get my laptop functioning immediately, ordered the necessary part, and fixed it in 2 days. I did not have to leave it there at all. The price was reasonable.",
+  },
 ];
 ---
 
@@ -97,6 +115,17 @@ const jsonLd = [
       the diagnosis and any parts needed. You approve the price before work
       begins — no surprise charges.
     </p>
+  </div>
+
+  <div class="testimonial-single">
+    <div class="stars">★★★★★</div>
+    <p class="quote">
+      "They were very competent, and diagnosed my problem quickly. They were
+      able to get my laptop functioning immediately, ordered the necessary part,
+      and fixed it in 2 days. I did not have to leave it there at all. The price
+      was reasonable."
+    </p>
+    <p class="author">— Victoria Cassano</p>
   </div>
 
   <h2>Frequently asked questions</h2>

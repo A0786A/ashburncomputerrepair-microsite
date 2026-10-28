@@ -418,3 +418,67 @@ footer.site a {
 .form-status.error {
   color: #b3261e;
 }
+
+.testimonials {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.testimonial {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.5rem;
+  background: var(--bg-soft);
+}
+
+.testimonial .stars {
+  color: var(--gold);
+  font-size: 1.1rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.testimonial .quote {
+  color: var(--ink);
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+  font-style: italic;
+}
+
+.testimonial .author {
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}
+
+.testimonial-single {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.75rem;
+  background: var(--bg-soft);
+  margin: 1.75rem 0;
+}
+
+.testimonial-single .stars {
+  color: var(--gold);
+  font-size: 1.15rem;
+  margin-bottom: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+.testimonial-single .quote {
+  color: var(--ink);
+  line-height: 1.65;
+  margin-bottom: 0.85rem;
+  font-style: italic;
+}
+
+.testimonial-single .author {
+  color: var(--muted);
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 0;
+}

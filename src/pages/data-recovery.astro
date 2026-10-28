@@ -40,6 +40,24 @@ const jsonLd = [
       acceptedAnswer: { "@type": "Answer", text: f.a },
     })),
   },
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    itemReviewed: {
+      "@type": "LocalBusiness",
+      name: business.name,
+    },
+    author: {
+      "@type": "Person",
+      name: "Gerald Fry",
+    },
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: "5",
+    },
+    reviewBody:
+      "AZ Tech Services is absolutely the best place to have your tech equipment serviced. I've been using them for 3 years on several very difficult projects and they have come through with great results. Computers iPads and other tech equipment go to AZ Tech Services. Also very reasonable prices for this excellent service. Nothing is too big or small for them to repair.",
+  },
 ];
 ---
 
@@ -100,6 +118,19 @@ const jsonLd = [
       the drive's condition and the amount of data. You approve the price
       before work begins.
     </p>
+  </div>
+
+  <div class="testimonial-single">
+    <div class="stars">★★★★★</div>
+    <p class="quote">
+      "AZ Tech Services is absolutely the best place to have your tech equipment
+      serviced. I've been using them for 3 years on several very difficult
+      projects and they have come through with great results. Computers iPads
+      and other tech equipment go to AZ Tech Services. Also very reasonable
+      prices for this excellent service. Nothing is too big or small for them to
+      repair."
+    </p>
+    <p class="author">— Gerald Fry</p>
   </div>
 
   <h2>Frequently asked questions</h2>

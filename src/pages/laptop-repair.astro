@@ -40,6 +40,24 @@ const jsonLd = [
       acceptedAnswer: { "@type": "Answer", text: f.a },
     })),
   },
+  {
+    "@context": "https://schema.org",
+    "@type": "Review",
+    itemReviewed: {
+      "@type": "LocalBusiness",
+      name: business.name,
+    },
+    author: {
+      "@type": "Person",
+      name: "Charou Laad",
+    },
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: "5",
+    },
+    reviewBody:
+      "Visited the store earlier this week to increase the laptop storage which got full after phone data copy. During the appointment the AZ Tech technician was able to figure out the folder that occupied most of the storage. Deleting that folder made lots of space on the laptop. And this entire consultation was not charged since it didn't require storage upgrade! Absolutely stunned with the amazing service & gesture! Highly recommend AZ Tech Services!",
+  },
 ];
 ---
 
@@ -97,6 +115,20 @@ const jsonLd = [
       the diagnosis and any parts needed — screen and battery prices vary by
       model. You approve the price before work begins.
     </p>
+  </div>
+
+  <div class="testimonial-single">
+    <div class="stars">★★★★★</div>
+    <p class="quote">
+      "Visited the store earlier this week to increase the laptop storage which
+      got full after phone data copy. During the appointment the AZ Tech
+      technician was able to figure out the folder that occupied most of the
+      storage. Deleting that folder made lots of space on the laptop. And this
+      entire consultation was not charged since it didn't require storage
+      upgrade! Absolutely stunned with the amazing service & gesture! Highly
+      recommend AZ Tech Services!"
+    </p>
+    <p class="author">— Charou Laad</p>
   </div>
 
   <h2>Frequently asked questions</h2>
