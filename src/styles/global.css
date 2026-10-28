@@ -259,6 +259,12 @@ p {
   margin-bottom: 0;
 }
 
+.card-icon {
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
 .gallery {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
