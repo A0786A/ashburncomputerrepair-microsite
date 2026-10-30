@@ -1,0 +1,491 @@
+---
+import { business } from "../config.ts";
+import "../styles/global.css";
+
+// Google Ads landing page mirroring the /laptop page on aztechservices.net:
+// same offer, services, reviews, team section, FAQ, and quote form.
+// Leads post to the same Supabase edge function as the rest of this site,
+// tagged with this page's own source for HighLevel attribution.
+
+const pageUrl = `${business.siteUrl}/laptop`;
+const description =
+  "Laptop too slow or battery not lasting? Visit AZ Tech Services in Ashburn for laptop repairs. Free diagnostics and a low price guarantee. Call (866) 991-6727!";
+
+const reviews = [
+  {
+    name: "Robert Johnson",
+    text: "The guys at AZ Tech were super friendly and completely competent. They quickly confirmed the problem with my laptop, and ordered the right part. I am totally satisfied, and will use AZ Tech again!",
+  },
+  {
+    name: "Kamrul Ashfakh",
+    text: "Had an amazing experience with AZ Tech Services. I cracked the screen on my MacBook and they were able to quickly order the part and get it replaced in a very timely manner — even on a holiday. The communication, professionalism, and overall customer service were top tier.",
+  },
+  {
+    name: "Saanvi Movva",
+    text: "The staff and support experience at AZTech is top notch! They fulfill customer needs very efficiently and explain the process in a way that is easy to understand.",
+  },
+  {
+    name: "Jason Hein",
+    text: "We used AZ Tech to help transition our small business IT to a self managed solution. The team was very flexible in offering the services we needed. Planning and communication with the team was very good before the transition day so we were prepared for the IT transition. The team of three was able to execute all our requirements in one day as planned and our network is back online. We highly recommend AZ Tech.",
+  },
+  {
+    name: "Gerald Fry",
+    text: "AZ Tech Services is absolutely the best place to have your tech equipment serviced. I've been using them for 3 years on several very difficult projects a they have come through with great results. Computers iPads and other tech equipment go to AZ Tech Services. Also very reasonable prices for this excellent service.",
+  },
+];
+
+const faqs = [
+  {
+    q: "How long does laptop repair take in Ashburn?",
+    a: "Most laptop repairs are completed within 24–48 hours. Many common repairs can be done the same day.",
+  },
+  {
+    q: "Do you offer free diagnostics?",
+    a: "Yes, we offer free diagnostics for your laptop and a low price guarantee.",
+  },
+  {
+    q: "Which brands do you repair?",
+    a: "We repair all major laptop brands, including Dell, HP, Lenovo, Apple and ASUS, as well as custom builds.",
+  },
+  {
+    q: "Where are you located and do I need an appointment?",
+    a: "Walk-ins are welcome at 44075 Pipeline Plaza Unit 215, Ashburn, VA 20147; no appointment is needed. Call (866) 991-6727.",
+  },
+];
+
+const services = [
+  "System Glitches",
+  "Connection Problems",
+  "Device Damage",
+  "Overheating",
+  "Running Slow",
+  "Battery Problems",
+];
+
+const loveUs = [
+  {
+    title: "PREMIER CUSTOMER CARE",
+    text: "We strive to serve our community with trusted laptop services.",
+  },
+  {
+    title: "QUICK TURNAROUND",
+    text: "We work to get your laptop back to its best condition in the shortest time possible!",
+  },
+  {
+    title: "LOW PRICE GUARANTEE",
+    text: "We know price is a big factor in your decision to service your device. We are fair in our pricing and stay competitive!",
+  },
+  {
+    title: "LOCAL LAPTOP EXPERTS",
+    text: "We provide reliable laptop services — whether it's performance solutions, battery replacement, or device care.",
+  },
+];
+
+const team = [
+  {
+    src: "/images/phone-repair-bench.jpg",
+    alt: "AZ Tech Services technician repairing a laptop at the Ashburn repair shop",
+    caption: "Precision repairs, done in-house",
+  },
+  {
+    src: "/images/team-logo-portrait.jpg",
+    alt: "Laptop repair specialist at AZ Tech Services Ashburn location",
+    caption: "Friendly faces at our Ashburn shop",
+  },
+  {
+    src: "/images/techs-motherboard.jpg",
+    alt: "Laptop technicians performing motherboard diagnostics in Ashburn VA",
+    caption: "Board-level diagnostics & custom builds",
+  },
+];
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ComputerStore",
+      "@id": `${business.siteUrl}/#business`,
+      name: business.name,
+      image: `${business.siteUrl}/images/logo.png`,
+      logo: `${business.siteUrl}/images/logo.png`,
+      url: business.siteUrl,
+      telephone: business.phone,
+      priceRange: "$$",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "44075 Pipeline Plaza Unit 215",
+        addressLocality: business.addressLocality,
+        addressRegion: business.addressRegion,
+        postalCode: business.postalCode,
+        addressCountry: "US",
+      },
+      geo: { "@type": "GeoCoordinates", latitude: 39.02166, longitude: -77.47741 },
+      openingHours: business.openingHours,
+      sameAs: ["https://www.aztechservices.net"],
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "4.9",
+        reviewCount: "169",
+      },
+      review: reviews.map((r) => ({
+        "@type": "Review",
+        author: { "@type": "Person", name: r.name },
+        reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
+        reviewBody: r.text,
+      })),
+    },
+    {
+      "@type": "Service",
+      "@id": `${pageUrl}#service`,
+      name: "Laptop Repair",
+      serviceType: "Laptop Repair",
+      url: pageUrl,
+      provider: { "@id": `${business.siteUrl}/#business` },
+      areaServed: { "@type": "City", name: "Ashburn, VA" },
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: business.siteUrl },
+        { "@type": "ListItem", position: 2, name: "Laptop Repair", item: pageUrl },
+      ],
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${pageUrl}#faq`,
+      mainEntity: faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    },
+  ],
+};
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Laptop Services Done Fast in Ashburn | AZ Tech Services</title>
+    <meta name="description" content={description} />
+    <meta
+      name="google-site-verification"
+      content="bM1F6x5CLDtLhq8zdu_2KwQEWo6pOOsxbG3eGHHuG7M"
+    />
+    <link rel="canonical" href={pageUrl} />
+    <link rel="icon" type="image/png" href="/images/logo.png" />
+    <link rel="apple-touch-icon" href="/images/logo.png" />
+    <meta property="og:title" content="Laptop Services Done Fast in Ashburn | AZ Tech Services" />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:site_name" content={business.name} />
+    <meta property="og:image" content={`${business.siteUrl}/images/laptop-hero.webp`} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Laptop Services Done Fast in Ashburn | AZ Tech Services" />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${business.siteUrl}/images/laptop-hero.webp`} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    <style>
+      .lp { background: #f2f6f9; padding-bottom: 3rem; }
+      .lp .lp-wrap { max-width: 1060px; margin: 0 auto; padding: 0 1rem; text-align: center; }
+      .lp .phone-bar {
+        background: var(--navy); color: #fff; font-weight: 800; font-size: 1.25rem;
+        padding: 0.9rem 1rem; border-radius: 0 0 10px 10px;
+      }
+      .lp .phone-bar a { color: #fff; text-decoration: none; }
+      .lp h1 { font-size: 2.6rem; line-height: 1.15; margin: 2rem 0 0.25rem; color: var(--navy-dark); }
+      .lp h2 { font-size: 2rem; color: var(--navy-dark); margin: 3rem 0 0.5rem; }
+      .lp h2 .accent { color: var(--accent); font-style: italic; }
+      .lp .rule { width: 240px; max-width: 60%; border: none; border-top: 3px solid var(--navy); margin: 0.75rem auto 1.5rem; }
+      .lp .rated { font-size: 1.6rem; font-weight: 700; margin: 0.25rem 0 1rem; }
+      .lp .problem { font-size: 1.35rem; font-weight: 600; margin: 1.5rem 0 0.25rem; }
+      .lp .got-you { font-size: 1.35rem; font-weight: 800; color: var(--navy); margin: 0 0 1.25rem; }
+      .lp .hero-img { width: 100%; height: auto; border-radius: 10px; box-shadow: var(--shadow); }
+      .lp .box {
+        background: #fff; border: 2px solid var(--navy); border-radius: 10px;
+        padding: 1.75rem 1.25rem; margin-top: 1rem;
+      }
+      .lp .svc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin-top: 1.25rem; }
+      .lp .svc { background: var(--bg-soft); border: 1px solid var(--border); border-radius: 10px; padding: 1.1rem 0.75rem; font-weight: 700; }
+      .lp .love-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+      .lp .love h3 { margin: 0 0 0.25rem; font-size: 1.05rem; letter-spacing: 0.02em; }
+      .lp .love .mini-rule { width: 90px; border: none; border-top: 2px solid var(--ink); margin: 0.5rem auto; }
+      .lp .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+      .lp figure.photo { margin: 0; background: #fff; border: 1px solid var(--navy); border-radius: 10px; overflow: hidden; }
+      .lp figure.photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; }
+      .lp figure.photo figcaption { font-weight: 700; padding: 0.9rem 0.75rem; }
+      .lp .other-links { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-top: 1rem; }
+      .lp .other-links a {
+        background: #fff; border: 2px solid var(--navy); border-radius: 10px;
+        padding: 0.9rem 1.2rem; font-weight: 700; color: var(--navy); text-decoration: none;
+      }
+      .lp .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; margin-top: 1.5rem; text-align: left; }
+      .lp .review { background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 1.25rem; box-shadow: var(--shadow); }
+      .lp .review .stars { color: var(--gold); letter-spacing: 0.15em; }
+      .lp .review blockquote { margin: 0.5rem 0; }
+      .lp .review .who { font-weight: 700; }
+      .lp dl.faq { text-align: left; max-width: 760px; margin: 1.5rem auto 0; }
+      .lp dl.faq dt { font-weight: 800; font-size: 1.1rem; margin-top: 1.25rem; color: var(--navy-dark); }
+      .lp dl.faq dd { margin: 0.35rem 0 0; }
+      .lp .biz-info { margin-top: 1.5rem; line-height: 1.9; }
+      .lp form.quote { max-width: 560px; margin: 1.5rem auto 0; text-align: left; background: #fff; border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; box-shadow: var(--shadow); }
+      .lp form.quote .form-group { margin-bottom: 1rem; }
+      .lp form.quote label { display: block; font-weight: 600; margin-bottom: 0.3rem; }
+      .lp form.quote input { width: 100%; padding: 0.65rem 0.75rem; border: 1px solid var(--border); border-radius: 8px; font: inherit; }
+      .lp form.quote button {
+        width: 100%; background: var(--accent); color: #fff; border: none; border-radius: 8px;
+        padding: 0.85rem 1rem; font: inherit; font-weight: 800; cursor: pointer;
+      }
+      .lp form.quote button:hover { background: var(--accent-dark); }
+      .lp .form-status { margin-top: 0.75rem; }
+      .lp .form-status.success { color: #146c2e; font-weight: 600; }
+      .lp .form-status.error { color: #b3261e; font-weight: 600; }
+      .lp footer.lp-footer { background: var(--navy-dark); color: #dbe6f0; margin-top: 3.5rem; padding: 2.5rem 1rem; text-align: center; }
+      .lp footer.lp-footer a { color: #fff; }
+      .lp footer.lp-footer .disclaimer { max-width: 860px; margin: 1rem auto 0; font-size: 0.85rem; line-height: 1.6; }
+      .lp footer.lp-footer img { width: 72px; height: 72px; border-radius: 12px; }
+    </style>
+  </head>
+  <body>
+    <div class="lp">
+      <div class="lp-wrap">
+        <div class="phone-bar">
+          <a href={`tel:${business.phone}`}>(866) 991-6727</a> Your local expert!
+        </div>
+
+        <h1>Laptop Services Done Fast</h1>
+        <p class="rated">Top Rated In Ashburn</p>
+        <img src="/images/logo.png" alt="AZ Tech Services logo" width="96" height="96" />
+        <p class="problem">Laptop acting up? too slow? Battery not lasting?</p>
+        <p class="got-you">Don't worry. We've got you!</p>
+        <img
+          class="hero-img"
+          src="/images/laptop-hero.webp"
+          alt="Laptop with a cracked screen and battery ready for service at AZ Tech Services in Ashburn"
+          width="1024"
+          height="1024"
+        />
+
+        <h2>Any Device. Any Issue.</h2>
+        <hr class="rule" />
+        <p>Tell us about your device to get a quote!</p>
+
+        <h2>Our Most Common Services</h2>
+        <p>
+          Our dedicated team of laptop specialists is always available to keep
+          your device in top condition.
+        </p>
+        <div class="box">
+          <div class="svc-grid">
+            {services.map((s) => <div class="svc">{s}</div>)}
+          </div>
+        </div>
+
+        <h2>Why Our Customers <span class="accent">Love Us</span></h2>
+        <div class="love-grid">
+          {
+            loveUs.map((item) => (
+              <div class="love">
+                <h3>{item.title}</h3>
+                <hr class="mini-rule" />
+                <p>{item.text}</p>
+              </div>
+            ))
+          }
+        </div>
+
+        <h2>Meet Our Ashburn Repair Technicians</h2>
+        <p>
+          Real local technicians right here in Ashburn — the same people who
+          will greet you at the counter and repair your device.
+        </p>
+        <hr class="rule" />
+        <div class="team-grid">
+          {
+            team.map((t) => (
+              <figure class="photo">
+                <img src={t.src} alt={t.alt} loading="lazy" />
+                <figcaption>{t.caption}</figcaption>
+              </figure>
+            ))
+          }
+        </div>
+
+        <h2>Other Services We Offer</h2>
+        <hr class="rule" />
+        <div class="other-links">
+          <a href="/computer-repair">Computer and Desktop Repair in Ashburn</a>
+          <a href="/gaming-console-repair">Gaming Console Repair in Ashburn</a>
+        </div>
+
+        <h2>Our Google Reviews</h2>
+        <div class="reviews-grid">
+          {
+            reviews.map((r) => (
+              <div class="review">
+                <div class="stars" aria-label="5 star review">★★★★★</div>
+                <blockquote>“{r.text}”</blockquote>
+                <p class="who">{r.name}</p>
+              </div>
+            ))
+          }
+        </div>
+
+        <h2>Frequently Asked Questions</h2>
+        <hr class="rule" />
+        <dl class="faq">
+          {
+            faqs.map((f) => (
+              <>
+                <dt>{f.q}</dt>
+                <dd>{f.a}</dd>
+              </>
+            ))
+          }
+        </dl>
+
+        <h2>Stop by anytime or give us a quick call - walk-ins welcome!</h2>
+        <p style="font-size:1.5rem;font-weight:800;">
+          <a href={`tel:${business.phone}`}>(866) 991-6727</a>
+        </p>
+        <div class="biz-info">
+          <p>
+            <strong>Business:</strong> AZ Tech Services<br />
+            <strong>Hours:</strong> {business.hoursDisplay}<br />
+            <strong>Price Range:</strong> $$<br />
+            <strong>Rating:</strong> 4.9 (169 reviews)
+          </p>
+        </div>
+
+        <form class="quote" id="quote-form" method="POST" action="#">
+          <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" name="phone" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="device">Device / Issue *</label>
+            <input
+              type="text"
+              id="device"
+              name="device"
+              placeholder="e.g., Laptop screen cracked, battery not lasting"
+              required
+            />
+          </div>
+          <button type="submit" id="quote-submit">Get My Quote</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          <p style="text-align:center;margin:0.75rem 0 0;">
+            or call <a href={`tel:${business.phone}`}>(866) 991-6727</a>
+          </p>
+        </form>
+      </div>
+
+      <footer class="lp-footer">
+        <img src="/images/logo.png" alt="AZ Tech Services logo" width="512" height="512" />
+        <h2 style="color:#fff;margin:1rem 0 0.5rem;">Visit Us</h2>
+        <p>44075 Pipeline Plaza Unit 215, Ashburn, VA 20147, United States</p>
+        <h2 style="color:#fff;margin:1rem 0 0.5rem;">Phone</h2>
+        <p><a href={`tel:${business.phone}`}>(866) 991-6727</a></p>
+        <p class="disclaimer">
+          AZ Tech Services is an independent, locally owned repair shop. All
+          repairs are performed in-house by our own technicians at our Ashburn,
+          VA location. We are not affiliated with, endorsed by, sponsored by,
+          or an authorized service provider of Apple, Samsung, LG, Sony,
+          Microsoft, Nintendo, HP, Dell, Lenovo, or any other manufacturer.
+          All product names, logos, and brands are property of their respective
+          owners and are used for identification purposes only.
+        </p>
+        <p>
+          © 2026 AZ Tech Services | All Rights Reserved |{" "}
+          <a href="https://aztechservices.net/privacy-policy">Privacy Policy</a>{" "}
+          |{" "}
+          <a href="https://aztechservices.net/terms-and-conditions">
+            Terms and Conditions
+          </a>
+        </p>
+      </footer>
+    </div>
+
+    <script is:inline>
+      (function () {
+        var form = document.getElementById("quote-form");
+        if (!form) return;
+        var status = document.getElementById("form-status");
+        var button = document.getElementById("quote-submit");
+        var ENDPOINT =
+          "https://ccfbanwzjigmwucdmbbj.supabase.co/functions/v1/send-contact-email";
+        var ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNjZmJhbnd6amlnbXd1Y2RtYmJqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjU2MDgwNTYsImV4cCI6MjA4MTE4NDA1Nn0.JHjx3qcvWEOCp3wVbZEYWMIM7ktxkZCPGQB6IE32xpY";
+        var SOURCE =
+          "AZ Tech Services Website - Laptop Landing Page (ashburncomputerrepair.com)";
+        form.addEventListener("submit", function (event) {
+          event.preventDefault();
+          var data = new FormData(form);
+          var name = (data.get("name") || "").toString().trim();
+          var phone = (data.get("phone") || "").toString().trim();
+          var email = (data.get("email") || "").toString().trim();
+          var device = (data.get("device") || "").toString().trim();
+          if (!name || !phone || !email || !device) {
+            status.textContent =
+              "Please fill in your name, phone, email, and device/issue.";
+            status.className = "form-status error";
+            return;
+          }
+          button.disabled = true;
+          status.textContent = "Sending…";
+          status.className = "form-status";
+          fetch(ENDPOINT, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              apikey: ANON_KEY,
+              Authorization: "Bearer " + ANON_KEY,
+            },
+            body: JSON.stringify({
+              name: name,
+              email: email,
+              phone: phone,
+              message: "Device / Issue: " + device,
+              source: SOURCE,
+            }),
+          })
+            .then(function (res) {
+              return res.json().then(function (json) {
+                return { ok: res.ok, json: json };
+              });
+            })
+            .then(function (result) {
+              if (result.ok && result.json && result.json.success) {
+                form.reset();
+                status.textContent =
+                  "Thank you — your quote request has been sent. We will get back to you shortly. For anything urgent, call (866) 991-6727.";
+                status.className = "form-status success";
+              } else {
+                status.textContent =
+                  "Sorry, sending failed. Please call us at (866) 991-6727 and we will help right away.";
+                status.className = "form-status error";
+              }
+            })
+            .catch(function () {
+              status.textContent =
+                "Sorry, sending failed. Please call us at (866) 991-6727 and we will help right away.";
+              status.className = "form-status error";
+            })
+            .finally(function () {
+              button.disabled = false;
+            });
+        });
+      })();
+    </script>
+  </body>
+</html>
