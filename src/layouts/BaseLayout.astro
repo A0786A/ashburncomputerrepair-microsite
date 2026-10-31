@@ -18,7 +18,7 @@ const jsonLdList = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 const nameParts = business.name.split(" ");
 const brandMain = nameParts.slice(0, 2).join(" ");
 const brandRest = nameParts.slice(2).join(" ");
-const ogImage = `${business.siteUrl}/images/team-front-desk.webp`;
+const ogImage = `${business.siteUrl}/images/team-front-desk.jpg`;
 ---
 
 <!doctype html>
@@ -61,7 +61,7 @@ const ogImage = `${business.siteUrl}/images/team-front-desk.webp`;
         <a class="brand" href="/">
           <img
             class="brand-logo"
-            src="/images/logo.webp"
+            src="/images/logo.png"
             alt=""
             width="512"
             height="512"
@@ -92,7 +92,7 @@ const ogImage = `${business.siteUrl}/images/team-front-desk.webp`;
       <div class="wrap">
         <img
           class="footer-logo"
-          src="/images/logo.webp"
+          src="/images/logo.png"
           alt="AZ Tech Services logo"
           width="512"
           height="512"
@@ -108,7 +108,9 @@ const ogImage = `${business.siteUrl}/images/team-front-desk.webp`;
         </p>
         <p>
           <a href="/">Home</a> · <a href="/faq">FAQ</a> ·{" "}
-          <a href="/contact">Contact</a>
+          <a href="/contact">Contact</a> ·{" "}
+          <a href="/privacy-policy">Privacy Policy</a> ·{" "}
+          <a href="/terms-and-conditions">Terms and Conditions</a>
         </p>
       </div>
     </footer>
