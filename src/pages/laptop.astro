@@ -273,6 +273,49 @@ const jsonLd = {
         <hr class="rule" />
         <p>Tell us about your device to get a quote!</p>
 
+        <h2>Stop by anytime or give us a quick call - walk-ins welcome!</h2>
+        <p style="font-size:1.5rem;font-weight:800;">
+          <a href={`tel:${business.phone}`}>(866) 991-6727</a>
+        </p>
+        <div class="biz-info">
+          <p>
+            <strong>Business:</strong> AZ Tech Services<br />
+            <strong>Hours:</strong> {business.hoursDisplay}<br />
+            <strong>Price Range:</strong> $$<br />
+            <strong>Rating:</strong> 4.9 (169 reviews)
+          </p>
+        </div>
+
+        <form class="quote" id="quote-form" method="POST" action="#">
+          <div class="form-group">
+            <label for="name">Full Name *</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number *</label>
+            <input type="tel" id="phone" name="phone" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="device">Device / Issue *</label>
+            <input
+              type="text"
+              id="device"
+              name="device"
+              placeholder="e.g., Laptop screen cracked, battery not lasting"
+              required
+            />
+          </div>
+          <button type="submit" id="quote-submit">Get My Quote</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+          <p style="text-align:center;margin:0.75rem 0 0;">
+            or call <a href={`tel:${business.phone}`}>(866) 991-6727</a>
+          </p>
+        </form>
+
         <h2>Our Most Common Services</h2>
         <p>
           Our dedicated team of laptop specialists is always available to keep
@@ -347,48 +390,6 @@ const jsonLd = {
           }
         </dl>
 
-        <h2>Stop by anytime or give us a quick call - walk-ins welcome!</h2>
-        <p style="font-size:1.5rem;font-weight:800;">
-          <a href={`tel:${business.phone}`}>(866) 991-6727</a>
-        </p>
-        <div class="biz-info">
-          <p>
-            <strong>Business:</strong> AZ Tech Services<br />
-            <strong>Hours:</strong> {business.hoursDisplay}<br />
-            <strong>Price Range:</strong> $$<br />
-            <strong>Rating:</strong> 4.9 (169 reviews)
-          </p>
-        </div>
-
-        <form class="quote" id="quote-form" method="POST" action="#">
-          <div class="form-group">
-            <label for="name">Full Name *</label>
-            <input type="text" id="name" name="name" required />
-          </div>
-          <div class="form-group">
-            <label for="phone">Phone Number *</label>
-            <input type="tel" id="phone" name="phone" required />
-          </div>
-          <div class="form-group">
-            <label for="email">Email Address *</label>
-            <input type="email" id="email" name="email" required />
-          </div>
-          <div class="form-group">
-            <label for="device">Device / Issue *</label>
-            <input
-              type="text"
-              id="device"
-              name="device"
-              placeholder="e.g., Laptop screen cracked, battery not lasting"
-              required
-            />
-          </div>
-          <button type="submit" id="quote-submit">Get My Quote</button>
-          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
-          <p style="text-align:center;margin:0.75rem 0 0;">
-            or call <a href={`tel:${business.phone}`}>(866) 991-6727</a>
-          </p>
-        </form>
       </div>
 
       <footer class="lp-footer">
