@@ -1,39 +1,36 @@
-# AZ Tech Services — Ashburn, VA
+# Ashburn Computer Repair — Ashburn, VA
 
-AZ Tech Services is a local computer repair shop serving Ashburn, Virginia
-and nearby towns, including Sterling, Leesburg, Herndon, and Reston in
-Loudoun County. Rated 4.9 out of 5 from 169 Google reviews.
+Ashburn Computer Repair is a service-area computer repair business serving
+Ashburn, Virginia and nearby Northern Virginia communities, including
+Sterling, Broadlands, Leesburg, Dulles, Lansdowne, and the rest of Loudoun
+County. We do not operate a staffed office in Ashburn, VA.
 
-## Visit or contact
+## Contact
 
-- Address: 44075 Pipeline Plaza Ste. 215, Ashburn, VA 20147
-- Phone: (866) 991-6727
-- Hours: Open every day — walk-ins 8:30 AM–2:00 PM; after-hours by appointment
-- Main website: https://www.aztechservices.net
+- Phone: (703) 997-2971
+- Service area: Ashburn and Northern Virginia
+- Website: https://www.ashburncomputerrepair.com/
 
 ## Services
 
-- Computer repair — desktops that will not boot, crash, overheat, or run slowly
-- Laptop repair — screens, batteries, keyboards, charging ports, and hinge damage
-- Virus and malware removal — pop-ups, browser hijacks, ransomware scares, spyware
-- Data recovery — photos, documents, and work files from failing drives and dead devices
-- Phone repair — screens, batteries, charging ports, and water-damaged phones
-- Gaming console repair — PlayStation, Xbox, and Nintendo Switch: HDMI, disc drives, overheating, controller drift
-
-## How it works
-
-Walk-ins are welcome. Diagnosis and quotes are free, and the exact price is
-approved before any work starts. Many common repairs are completed the same
-day or the next business day.
+- Laptop screen replacements
+- Keyboard and hinge repairs
+- Data recovery and backup
+- Virus and malware removal
+- Desktop and laptop repair
+- Speed upgrades (SSD and RAM)
 
 ## Links
 
-- Homepage: https://ashburncomputerrepair.com/
-- Computer repair: https://ashburncomputerrepair.com/computer-repair
-- Laptop repair: https://ashburncomputerrepair.com/laptop-repair
-- Virus removal: https://ashburncomputerrepair.com/virus-removal
-- Data recovery: https://ashburncomputerrepair.com/data-recovery
-- Phone repair: https://ashburncomputerrepair.com/phone-repair
-- Gaming console repair: https://ashburncomputerrepair.com/gaming-console-repair
-- FAQ: https://ashburncomputerrepair.com/faq
-- Contact: https://ashburncomputerrepair.com/contact
+- Homepage: https://www.ashburncomputerrepair.com/
+- Services: https://www.ashburncomputerrepair.com/services
+- Laptop screen replacements: https://www.ashburncomputerrepair.com/laptop-screen-replacements
+- Keyboard and hinge repairs: https://www.ashburncomputerrepair.com/keyboard-and-hinge-repairs
+- Data recovery and backup: https://www.ashburncomputerrepair.com/data-recovery-and-backup
+- Virus and malware removal: https://www.ashburncomputerrepair.com/virus-and-malware-removal
+- Desktop and laptop repair: https://www.ashburncomputerrepair.com/desktop-and-laptop-repair
+- Speed upgrades: https://www.ashburncomputerrepair.com/speed-upgrades-ssd-and-ram
+- Service areas: https://www.ashburncomputerrepair.com/service-areas
+- FAQ: https://www.ashburncomputerrepair.com/faq
+- Get an estimate: https://www.ashburncomputerrepair.com/estimate
+- Contact: https://www.ashburncomputerrepair.com/contact

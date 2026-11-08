@@ -4,6 +4,12 @@ DirectoryIndex index.html
 ErrorDocument 404 /404.html
 RewriteEngine On
 
+# Retired /laptop landing page
+RewriteRule ^laptop/?$ /desktop-and-laptop-repair [R=301,L]
+
+# Old misspelled Lansdowne URL
+RewriteRule ^computer-repair-in-landsdowne-va(\.html)?$ /computer-repair-in-lansdowne-va [R=301,L]
+
 # /index.html -> /
 RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
 RewriteRule ^index\.html$ / [R=301,L]
