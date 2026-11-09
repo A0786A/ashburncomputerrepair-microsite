@@ -1,1 +1,1 @@
-document.addEventListener('DOMContentLoaded',function(){var l=document.getElementById('navlinks');if(l){l.addEventListener('click',function(e){if(e.target.tagName==='A'&&innerWidth<=900)l.classList.remove('open')})}});
+document.addEventListener('DOMContentLoaded',function(){var l=document.getElementById('navlinks');var b=document.querySelector('.nav__toggle');if(b&&l){b.addEventListener('click',function(){l.classList.toggle('open')})}if(l){l.addEventListener('click',function(e){if(e.target.tagName==='A'&&innerWidth<=960)l.classList.remove('open')})}});
